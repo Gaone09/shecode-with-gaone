@@ -1,105 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swimming My Favourite Hobby</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swimming — Gaone 🏊</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ocean-deep:  #0a1628;
+    --ocean-mid:   #0d3b6e;
+    --ocean-light: #1a6ea8;
+    --foam:        #e8f7ff;
+    --accent:      #00c9ff;
+    --gold:        #f0c040;
+    --white:       #ffffff;
+  }
 
-    <style>
-        body {
-            background: teal;
-        }
-        h1 {
-            text-align: center;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        }
-        h2 {
-            text-align: center;
-        }
-        p {
-            text-align: center;
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .container {
-           max-width: 600px;
-           background-color: aliceblue;
-           padding: 20px;
-           border-radius: 10px;
-           margin:  50px auto;
-        }
-        img {
-            max-width: 100%;
-        }
-        button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 150ms ease-in-out ;
-        }
-        footer {
-            text-align: left;
-            margin-top: 20px;
-            font-size: 12px;
-            color: #0e0202;
-        }
-        .theme-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 150ms ease-in-out ;
-        }
-        
-        
+  body {
+    background: linear-gradient(160deg, var(--ocean-deep) 0%, var(--ocean-mid) 60%, var(--ocean-light) 100%);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--foam);
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: bodyIn 1s ease-out both;
+  }
+
+  @keyframes bodyIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  
+  .theme-button {
+    position: fixed;
+    top: 14px;
+    right: 16px;
+    z-index: 100;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 200ms ease;
+  }
+  .theme-button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ocean-deep);
+  }
+
+  
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+    animation: containerIn 0.8s 0.2s ease-out both;
+  }
+
+  @keyframes containerIn {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  
+  .title-block {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .title-block h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 18vw, 120px);
+    letter-spacing: 0.06em;
+    line-height: 0.9;
+    /* Liquid chrome gradient on the word */
+    background: linear-gradient(135deg, var(--accent) 0%, var(--white) 40%, var(--gold) 70%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    animation: shimmer 4s linear infinite;
+    background-size: 200% auto;
+  }
+
+  @keyframes shimmer {
+    from { background-position: 0% center; }
+    to   { background-position: 200% center; }
+  }
+
+  .title-block h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+  }
+
+ 
+  .swim-intro-picture {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 28px;
+    border: 1px solid rgba(0,201,255,0.2);
+    transition: transform 300ms ease, filter 300ms ease, box-shadow 300ms ease;
+  }
+
+  .swim-intro-picture:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1) saturate(1.2);
+    box-shadow: 0 20px 60px rgba(0,201,255,0.3);
+  }
+
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: 130px 130px 100px;
+    gap: 8px;
+    margin: 0 0 28px;
+  }
+
+  
+  .grid img:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  
+  .grid img:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .grid img:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  
+  .grid img:nth-child(4) {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+
+  .grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    /* transition on element — plays both in AND out */
+    transition: transform 280ms cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 280ms ease,
+                filter 280ms ease;
+    cursor: pointer;
+  }
+
+ 
+  .grid img:nth-child(1):hover {
+    transform: scale(1.06) rotate(-2deg);
+    box-shadow: 0 20px 50px rgba(0,201,255,0.5);
+    filter: saturate(1.4) brightness(1.05);
+    z-index: 5;
+    position: relative;
+  }
+
+  .grid img:nth-child(2):hover {
+    transform: scale(1.12) translateX(-6px);
+    box-shadow: -10px 10px 30px rgba(0,0,0,0.5);
+    filter: contrast(1.2);
+    z-index: 5;
+    position: relative;
+  }
+
+  .grid img:nth-child(3):hover {
+    transform: scale(1.12) translateX(-6px);
+    box-shadow: -10px -10px 30px rgba(240,192,64,0.4);
+    filter: brightness(1.15) saturate(1.3);
+    z-index: 5;
+    position: relative;
+  }
+
+  .grid img:nth-child(4):hover {
+    transform: scaleY(1.18) scaleX(1.02);
+    box-shadow: 0 0 50px rgba(0,201,255,0.4);
+    filter: saturate(1.5) brightness(1.08);
+    z-index: 5;
+    position: relative;
+  }
 
 
-    </style>
-   
+  p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(232,247,255,0.8);
+    margin-bottom: 28px;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,201,255,0.3);
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+
+  a:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  
+  .learn-btn {
+    display: block;
+    margin: 0 auto 10px;
+    background: linear-gradient(90deg, var(--accent), var(--ocean-light));
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  }
+
+  .learn-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,201,255,0.45);
+    filter: brightness(1.1);
+  }
+
+  
+  footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    padding-bottom: 30px;
+  }
+
+ 
+  body.light {
+    background: linear-gradient(160deg, #cceeff 0%, #e8f7ff 60%, #ffffff 100%);
+    color: var(--ocean-deep);
+  }
+
+  body.light .title-block h2 { color: var(--ocean-mid); }
+  body.light p { color: var(--ocean-deep); }
+  body.light footer { color: rgba(10,22,40,0.4); }
+
+  body.light .theme-button {
+    background: rgba(10,22,40,0.08);
+    border-color: rgba(10,22,40,0.2);
+    color: var(--ocean-deep);
+  }
+
+  body.light .swim-intro-picture {
+    border-color: rgba(0,100,180,0.2);
+  }
+
+  
+  @media (max-width: 440px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 110px 110px 90px;
+    }
+    .grid img:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .grid img:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
+  }
+</style>
 </head>
 <body>
-    <button class="theme-button">Dark theme</button>
-     <div class="container">
-    <h1>Swimming </h1>
-    <h2>My Favourite Hobby</h2>
-    <img src="  https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.uaHG-e-p8c2Fbpslon0cbwHaEU%3Fpid%3DApi&f=1&ipt=b5bf0485dc5a7d88e4c72ec84e19eaaa9704f4dd507e872f28302d40a667b9ea&ipo=images  " alt="">
-    <img src=" https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.hoVjUpIMhEe7FzfbiFKYqAHaE8%3Fpid%3DApi&f=1&ipt=f1bba6d0716d82b4abf68bed25bac5327db47b86bb142021e0b730c6295477e5&ipo=images " alt="">
-    <img src=" https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.7YKEWspxd7Y8p3YavxwUfQHaHa%3Fpid%3DApi&f=1&ipt=cb60d02827aefb3a912fa962f36f7ac3c5188807d84aabe699c1de3afac9f0df&ipo=images " alt="">
-    <img src="  https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.vUIPQoAsqx3eQjo7ndKjyAHaEK%3Fpid%3DApi&f=1&ipt=5e1146cb2fd7cfdc8d596dcc435638b3a382a326ac8081ee1cdd0eb862dcedf2&ipo=images     " alt="">
-    <p>Swimming is my favourite hobby because it is a great way to stay fit and healthy. I enjoy the feeling of being in the water and the sense of freedom it gives me. Swimming also helps me relax and de-stress after a long day. I love trying out different swimming strokes and techniques, and I find it to be a fun and rewarding activity.</p>
-    <button>Learn Swimming</button>
-        </div>
-    
-        
-    <footer>Coded By Gaone Otukile </footer>
 
-    <script>
-        const themeButton = document.querySelector('.theme-button');
-        let isDarkTheme = false;
+<button class="theme-button">☀ Light</button>
 
-        themeButton.addEventListener('click', function() {
-            isDarkTheme = !isDarkTheme;
-            if (isDarkTheme) {
-                document.body.style.backgroundColor = '#1a1a1a';
-                document.body.style.color = 'white';
-                document.querySelector('.container').style.backgroundColor = '#333333';
-                document.querySelector('.container').style.color = 'white';
-                themeButton.textContent = 'Light theme';
-            } else {
-                document.body.style.backgroundColor = 'teal';
-                document.body.style.color = 'black';
-                document.querySelector('.container').style.backgroundColor = 'aliceblue';
-                document.querySelector('.container').style.color = 'black';
-                themeButton.textContent = 'Dark theme';
-            }
-        });
-    </script>
+<div class="container">
+
+  <div class="title-block">
+    <h1>SWIMMING</h1>
+    <h2>My Favourite Hobby &nbsp;·&nbsp; By Gaone</h2>
+  </div>
+
+  <a href="https://en.wikipedia.org/wiki/Swimming" target="_blank">
+    <img
+      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.uaHG-e-p8c2Fbpslon0cbwHaEU%3Fpid%3DApi&f=1&ipt=b5bf0485dc5a7d88e4c72ec84e19eaaa9704f4dd507e872f28302d40a667b9ea&ipo=images"
+      alt="Swimming pool"
+      class="swim-intro-picture"
+    />
+  </a>
+
+  
+  <div class="grid">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.uaHG-e-p8c2Fbpslon0cbwHaEU%3Fpid%3DApi&f=1&ipt=b5bf0485dc5a7d88e4c72ec84e19eaaa9704f4dd507e872f28302d40a667b9ea&ipo=images" alt="Swimming pool" />
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.hoVjUpIMhEe7FzfbiFKYqAHaE8%3Fpid%3DApi&f=1&ipt=f1bba6d0716d82b4abf68bed25bac5327db47b86bb142021e0b730c6295477e5&ipo=images" alt="Swimmer" />
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.7YKEWspxd7Y8p3YavxwUfQHaHa%3Fpid%3DApi&f=1&ipt=cb60d02827aefb3a912fa962f36f7ac3c5188807d84aabe699c1de3afac9f0df&ipo=images" alt="Swimming goggles" />
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.vUIPQoAsqx3eQjo7ndKjyAHaEK%3Fpid%3DApi&f=1&ipt=5e1146cb2fd7cfdc8d596dcc435638b3a382a326ac8081ee1cdd0eb862dcedf2&ipo=images" alt="Olympic swimming" />
+  </div>
+
+  <p>
+    Swimming is my favourite hobby because it is a great way to stay fit and healthy.
+    I enjoy the feeling of being in the water and the sense of freedom it gives me.
+    Swimming also helps me relax and de-stress after a long day. I love trying out
+    different swimming strokes and techniques, and I find it to be a fun and rewarding activity.
+    <br /><br />
+     <a href="https://en.wikipedia.org/wiki/Swimming" target="_blank"><strong>Read on Wikipedia</strong></a>
+  </p>
+
+  <button class="learn-btn">Learn Swimming</button>
+
+</div>
+
+<footer>Coded with 💙 by Gaone Otukile</footer>
+
+<script>
+  const themeBtn = document.querySelector('.theme-button');
+  const body = document.body;
+
+  themeBtn.addEventListener('click', function () {
+    body.classList.toggle('light');
+    themeBtn.textContent = body.classList.contains('light') ? '🌙 Dark' : '☀ Light';
+  });
+</script>
+
+</body>
+</html>
