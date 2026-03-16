@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        background: red;
+        width: 400px;
+        height: 400px;
+      }
+      button {
+        margin: 20px;
+        font-size: 30px;
+        background-color: blue;
+        color: aliceblue;
+      }
+      .blue {
+        background: blue;
+        width: 500px;
+        height: 500px;
+      }
+      .green {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button>Make it blue</button>
+    <script>
+      //box.innerHTML = "hello Box";
+      //console.log(box.classList);
+      function makeItBlue() {
+        let box = document.querySelector(".box");
+
+        box.classList.add("blue");
+      }
+      let button = document.querySelector("button");
+      button.addEventListener("click", makeItBlue);
+    </script>
+  </body>
+</html>
